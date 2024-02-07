@@ -828,10 +828,18 @@ def evaluate(
 
     print_results_apc(apc_results, apc_stuff_classes, apc_things_classes)
 
+
+    all_results = {
+        "apc_results": apc_results,
+        "apc_stuff_classes": apc_stuff_classes,
+        "apc_things_classes": apc_things_classes,
+        "apq_results": apq_results,
+        "apq_stuff_classes": apq_stuff_classes,
+        "apq_things_classes": apq_things_classes
+    }
     with open(results_file, "w") as f:
         print("Saving computed results in {}".format(results_file))
-        for results in [apc_results, apc_stuff_classes, apc_things_classes]:
-            json.dump(results, f, sort_keys=True, indent=4)
+        json.dump(all_results, f, sort_keys=True, indent=4)
 
     t_delta = time.time() - start_time
     print("Time elapsed: {:0.2f} seconds".format(t_delta))

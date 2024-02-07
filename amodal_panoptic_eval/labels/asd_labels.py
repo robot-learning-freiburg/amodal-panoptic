@@ -114,7 +114,7 @@ name2label      = { label.name    : label for label in labels           }
 # id to label object
 id2label        = { label.id      : label for label in labels           }
 # trainId to label object
-trainId2label   = { label.trainId : label for label in reversed(labels) if label.id != 34 or label.id != 17}
+trainId2label   = { label.trainId : label for label in reversed(labels) if label.id != 34 and label.id != 17}
 
 color2id = {(label.color[0], label.color[1], label.color[2]): label.id for label in labels}
 # category to list of label objects
